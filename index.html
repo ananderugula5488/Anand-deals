@@ -1,5 +1,4 @@
-```html
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,17 +6,14 @@
 
   <title>DealRadar India | Discover Better Deals</title>
 
-  <meta
-    name="description"
-    content="DealRadar India helps shoppers discover interesting price drops, product deals and useful buying opportunities across Indian online marketplaces."
-  >
+  <meta name="description" content="DealRadar India helps shoppers discover useful price drops, offers and product opportunities across Indian online marketplaces.">
 
   <meta name="robots" content="index, follow">
 
   <style>
     :root {
-      --bg: #f7f8fa;
-      --surface: #ffffff;
+      --background: #f7f8fa;
+      --white: #ffffff;
       --text: #111827;
       --muted: #667085;
       --border: #e5e7eb;
@@ -25,7 +21,7 @@
       --accent: #f59e0b;
       --accent-dark: #d97706;
       --success: #15803d;
-      --max: 1120px;
+      --max-width: 1120px;
     }
 
     * {
@@ -40,7 +36,7 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background: var(--background);
       color: var(--text);
       line-height: 1.7;
     }
@@ -51,16 +47,16 @@
     }
 
     .container {
-      width: min(92%, var(--max));
-      margin: auto;
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
     }
 
     header {
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
       backdrop-filter: blur(10px);
     }
 
@@ -100,92 +96,92 @@
     .hero {
       padding: 90px 0 80px;
       background:
-        radial-gradient(circle at 80% 20%, rgba(245,158,11,.16), transparent 32%),
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.16), transparent 32%),
         linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 60px;
       align-items: center;
     }
 
     .eyebrow {
       display: inline-block;
+      padding: 6px 12px;
+      margin-bottom: 22px;
+      border: 1px solid #fed7aa;
+      border-radius: 999px;
       background: #fff7e6;
       color: #92400e;
-      border: 1px solid #fed7aa;
-      padding: 6px 12px;
-      border-radius: 999px;
       font-size: 13px;
       font-weight: 700;
-      margin-bottom: 22px;
     }
 
     h1 {
+      margin-bottom: 24px;
       font-size: clamp(42px, 6vw, 72px);
       line-height: 1.02;
       letter-spacing: -3px;
-      margin-bottom: 24px;
     }
 
     .hero p {
-      font-size: 19px;
-      color: var(--muted);
       max-width: 680px;
       margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 19px;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 14px;
     }
 
     .button {
       display: inline-block;
       padding: 13px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 15px;
       border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
     }
 
     .button-primary {
-      background: var(--primary);
-      color: white;
       border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
     }
 
     .button-secondary {
-      background: white;
+      background: #ffffff;
     }
 
     .hero-card {
-      background: var(--surface);
+      padding: 28px;
       border: 1px solid var(--border);
       border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 20px 60px rgba(15,23,42,.08);
+      background: var(--white);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
     }
 
     .hero-card h3 {
-      font-size: 20px;
       margin-bottom: 18px;
+      font-size: 20px;
     }
 
     .signal {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 15px;
       padding: 15px 0;
       border-bottom: 1px solid var(--border);
-      gap: 15px;
     }
 
     .signal:last-child {
-      border-bottom: 0;
+      border-bottom: none;
     }
 
     .signal strong {
@@ -194,8 +190,8 @@
 
     .signal span {
       color: var(--success);
-      font-weight: 800;
       font-size: 14px;
+      font-weight: 800;
     }
 
     section {
@@ -208,10 +204,10 @@
     }
 
     .section-head h2 {
+      margin-bottom: 14px;
       font-size: 38px;
       line-height: 1.15;
       letter-spacing: -1.5px;
-      margin-bottom: 14px;
     }
 
     .section-head p {
@@ -226,22 +222,22 @@
     }
 
     .card {
-      background: var(--surface);
+      padding: 26px;
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 26px;
+      background: var(--white);
     }
 
     .card-number {
+      margin-bottom: 12px;
+      color: var(--accent-dark);
       font-size: 13px;
       font-weight: 800;
-      color: var(--accent-dark);
-      margin-bottom: 12px;
     }
 
     .card h3 {
-      font-size: 20px;
       margin-bottom: 10px;
+      font-size: 20px;
     }
 
     .card p {
@@ -256,17 +252,17 @@
     }
 
     .category {
-      background: white;
-      border: 1px solid var(--border);
       padding: 12px 17px;
+      border: 1px solid var(--border);
       border-radius: 999px;
-      font-weight: 600;
+      background: #ffffff;
       color: #344054;
+      font-weight: 600;
     }
 
     .principles {
       background: #111827;
-      color: white;
+      color: #ffffff;
     }
 
     .principles .section-head p {
@@ -274,10 +270,10 @@
     }
 
     .principle-card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px;
       padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .principle-card h3 {
@@ -290,10 +286,10 @@
     }
 
     .notice {
-      background: #fffaf0;
+      padding: 24px;
       border: 1px solid #fed7aa;
       border-radius: 16px;
-      padding: 24px;
+      background: #fffaf0;
     }
 
     .notice h3 {
@@ -313,10 +309,10 @@
     }
 
     .about-box {
-      background: white;
+      padding: 30px;
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 30px;
+      background: #ffffff;
     }
 
     .about-box h3 {
@@ -329,25 +325,25 @@
     }
 
     footer {
+      padding: 45px 0;
       background: #0b1220;
       color: #cbd5e1;
-      padding: 45px 0;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.4fr .6fr;
+      grid-template-columns: 1.4fr 0.6fr;
       gap: 40px;
     }
 
     footer h3 {
-      color: white;
       margin-bottom: 12px;
+      color: #ffffff;
     }
 
     footer p {
-      font-size: 14px;
       max-width: 650px;
+      font-size: 14px;
     }
 
     .footer-links {
@@ -358,11 +354,11 @@
     }
 
     .copyright {
-      border-top: 1px solid rgba(255,255,255,.1);
       margin-top: 30px;
       padding-top: 20px;
-      font-size: 13px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: #94a3b8;
+      font-size: 13px;
     }
 
     @media (max-width: 800px) {
@@ -460,7 +456,6 @@
       </div>
     </section>
 
-
     <section id="how-it-works">
       <div class="container">
 
@@ -508,7 +503,6 @@
       </div>
     </section>
 
-
     <section id="categories">
       <div class="container">
 
@@ -523,7 +517,7 @@
 
         <div class="categories">
           <span class="category">Electronics</span>
-          <span class="category">Home & Kitchen</span>
+          <span class="category">Home &amp; Kitchen</span>
           <span class="category">Fashion</span>
           <span class="category">Beauty</span>
           <span class="category">Books</span>
@@ -538,7 +532,6 @@
 
       </div>
     </section>
-
 
     <section id="principles" class="principles">
       <div class="container">
@@ -583,7 +576,6 @@
       </div>
     </section>
 
-
     <section>
       <div class="container">
 
@@ -601,7 +593,6 @@
 
       </div>
     </section>
-
 
     <section id="about">
       <div class="container">
@@ -642,7 +633,6 @@
       </div>
     </section>
 
-
     <section>
       <div class="container">
 
@@ -660,7 +650,6 @@
     </section>
 
   </main>
-
 
   <footer>
     <div class="container">
@@ -695,4 +684,3 @@
 
 </body>
 </html>
-```
