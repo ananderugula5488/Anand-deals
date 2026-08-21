@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deals | DealRadar India</title>
+
+<meta name="description"
+content="Discover interesting deals, price drops and product opportunities across Indian online marketplaces with DealRadar India.">
+
+<meta name="robots" content="index, follow">
+
+<style>
+:root {
+    --background: #f7f8fa;
+    --white: #ffffff;
+    --text: #111827;
+    --muted: #667085;
+    --border: #e5e7eb;
+    --primary: #111827;
+    --accent: #f59e0b;
+    --accent-dark: #d97706;
+    --success: #15803d;
+    --danger: #dc2626;
+    --max-width: 1120px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(92%, var(--max-width));
+    margin: auto;
+}
+
+/* HEADER */
+
+header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--accent-dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-size: 14px;
+    color: #475467;
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+/* HERO */
+
+.hero {
+    padding: 78px 0 45px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 13px;
+    border: 1px solid #fed7aa;
+    border-radius: 999px;
+    background: #fff7ed;
+    color: #b45309;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    max-width: 780px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 720px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+/* SEARCH */
+
+.search-section {
+    margin: 15px 0 30px;
+}
+
+.search-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 8px 30px rgba(16, 24, 40, 0.04);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 16px 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: var(--accent);
+}
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0 40px;
+}
+
+.filter-btn {
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text);
+    padding: 10px 17px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+/* DEAL GRID */
+
+.deals-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.deals-header h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+.deals-header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.deals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+/* DEAL CARD */
+
+.deal-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.deal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(16, 24, 40, 0.08);
+}
+
+.product-image {
+    height: 190px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.deal-content {
+    padding: 20px;
+}
+
+.category {
+    color: var(--accent-dark);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 8px;
+}
+
+.deal-content h3 {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.deal-price {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.original-price {
+    color: #98a2b3;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+.discount {
+    display: inline-block;
+    color: var(--success);
+    background: #ecfdf3;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--success);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--success);
+    border-radius: 50%;
+}
+
+.view-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.view-btn:hover {
+    background: #1f2937;
+}
+
+/* DISCLAIMER */
+
+.disclaimer {
+    margin: 55px 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.disclaimer strong {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.disclaimer p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 70px;
+    background: #0b1220;
+    color: #cbd5e1;
+    padding: 35px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-brand {
+    font-weight: 800;
+    color: white;
+}
+
+.footer-brand span {
+    color: #f59e0b;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #1e293b;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .deals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .nav {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 10px;
+        font-size: 11px;
+    }
+
+    .hero {
+        padding: 55px 0 35px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .deals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .deals-header {
+        display: block;
+    }
+
+    .deals-header p {
+        margin-top: 6px;
+    }
+
+    .footer-inner {
+        display: block;
+    }
+
+    .footer-links {
+        margin-top: 18px;
+        flex-wrap: wrap;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+            DealRadar <span>India</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+
+        <div class="badge">Deal Discovery</div>
+
+        <h1>
+            Today's interesting deals.
+        </h1>
+
+        <p>
+            Explore products, price opportunities and potentially useful
+            offers discovered across Indian online marketplaces.
+        </p>
+
+    </div>
+</section>
+
+
+<section class="search-section">
+    <div class="container">
+
+        <div class="search-box">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products or deals..."
+                aria-label="Search deals">
+        </div>
+
+        <div class="filters">
+
+            <button class="filter-btn active" data-category="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-category="electronics">
+                Electronics
+            </button>
+
+            <button class="filter-btn" data-category="home">
+                Home & Kitchen
+            </button>
+
+            <button class="filter-btn" data-category="fashion">
+                Fashion
+            </button>
+
+            <button class="filter-btn" data-category="gaming">
+                Gaming
+            </button>
+
+            <button class="filter-btn" data-category="beauty">
+                Beauty
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+
+        <div class="deals-header">
+            <div>
+                <h2>Featured opportunities</h2>
+                <p>Example deal cards — live retailer data will be connected later.</p>
+            </div>
+        </div>
+
+
+        <div class="deals-grid" id="dealsGrid">
+
+
+            <!-- CARD 1 -->
+
+            <article class="deal-card" data-category="electronics">
+
+                <div class="product-image">
+                    PRODUCT IMAGE
+                </div>
+
+                <div class="deal-content">
+
+                    <div class="category">
+                        Electronics
+                    </div>
+
+                    <h3>
+                        Example Wireless Earbuds
+                    </h3>
+
+                    <div class="price-row">
+                        <span class="deal-price">₹1,499</span>
+                        <span class="original-price">₹2,499</span>
+                    </div>
+
+                    <span class="discount">
+                        Example 40% lower
+                    </span>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        Example listing
+                    </div>
+
+                    <a href="#" class="view-btn">
+                        View Deal
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 2 -->
+
+            <article class="deal-card" data-category="home">
+
+                <div class="product-image">
+                    PRODUCT IMAGE
+                </div>
+
+                <div class="deal-content">
+
+                    <div class="category">
+                        Home & Kitchen
+                    </div>
+
+                    <h3>
+                        Example Kitchen Appliance
+                    </h3>
+
+                    <div class="price-row">
+                        <span class="deal-price">₹2,999</span>
+                        <span class="original-price">₹4,499</span>
+                    </div>
+
+                    <span class="discount">
+                        Example 33% lower
+                    </span>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        Example listing
+                    </div>
+
+                    <a href="#" class="view-btn">
+                        View Deal
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 3 -->
+
+            <article class="deal-card" data-category="fashion">
+
+                <div class="product-image">
+                    PRODUCT IMAGE
+                </div>
+
+                <div class="deal-content">
+
+                    <div class="category">
+                        Fashion
+                    </div>
+
+                    <h3>
+                        Example Everyday Sneakers
+                    </h3>
+
+                    <div class="price-row">
+                        <span class="deal-price">₹1,999</span>
+                        <span class="original-price">₹3,499</span>
+                    </div>
+
+                    <span class="discount">
+                        Example 43% lower
+                    </span>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        Example listing
+                    </div>
+
+                    <a href="#" class="view-btn">
+                        View Deal
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 4 -->
+
+            <article class="deal-card" data-category="gaming">
+
+                <div class="product-image">
+                    PRODUCT IMAGE
+                </div>
+
+                <div class="deal-content">
+
+                    <div class="category">
+                        Gaming
+                    </div>
+
+                    <h3>
+                        Example Gaming Accessory
+                    </h3>
+
+                    <div class="price-row">
+                        <span class="deal-price">₹899</span>
+                        <span class="original-price">₹1,499</span>
+                    </div>
+
+                    <span class="discount">
+                        Example 40% lower
+                    </span>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        Example listing
+                    </div>
+
+                    <a href="#" class="view-btn">
+                        View Deal
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 5 -->
+
+            <article class="deal-card" data-category="beauty">
+
+                <div class="product-image">
+                    PRODUCT IMAGE
+                </div>
+
+                <div class="deal-content">
+
+                    <div class="category">
+                        Beauty
+                    </div>
+
+                    <h3>
+                        Example Personal Care Product
+                    </h3>
+
+                    <div class="price-row">
+                        <span class="deal-price">₹699</span>
+                        <span class="original-price">₹999</span>
+                    </div>
+
+                    <span class="discount">
+                        Example 30% lower
+                    </span>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        Example listing
+                    </div>
+
+                    <a href="#" class="view-btn">
+                        View Deal
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 6 -->
+
+            <article class="deal-card" data-category="electronics">
+
+                <div class="product-image">
+                    PRODUCT IMAGE
+                </div>
+
+                <div class="deal-content">
+
+                    <div class="category">
+                        Electronics
+                    </div>
+
+                    <h3>
+                        Example Smart Device
+                    </h3>
+
+                    <div class="price-row">
+                        <span class="deal-price">₹3,499</span>
+                        <span class="original-price">₹5,999</span>
+                    </div>
+
+                    <span class="discount">
+                        Example 42% lower
+                    </span>
+
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        Example listing
+                    </div>
+
+                    <a href="#" class="view-btn">
+                        View Deal
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+
+        <div class="disclaimer">
+
+            <strong>Important information</strong>
+
+            <p>
+                The products, prices and discounts shown on this page are
+                illustrative placeholders for the current website prototype.
+                Actual retailer prices, availability, seller information and
+                promotional conditions can change at any time. Always verify
+                the final product details and price on the retailer's website
+                before purchasing.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                DealRadar <span>India</span>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="categories.html">Categories</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 DealRadar India. All rights reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* CATEGORY FILTER */
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const dealCards = document.querySelectorAll(".deal-card");
+const searchInput = document.getElementById("searchInput");
+
+let selectedCategory = "all";
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        selectedCategory = button.dataset.category;
+
+        filterDeals();
+
+    });
+
+});
+
+
+/* SEARCH + FILTER */
+
+searchInput.addEventListener("input", filterDeals);
+
+function filterDeals() {
+
+    const searchTerm =
+        searchInput.value.toLowerCase().trim();
+
+    dealCards.forEach(card => {
+
+        const category =
+            card.dataset.category;
+
+        const text =
+            card.innerText.toLowerCase();
+
+        const categoryMatch =
+            selectedCategory === "all" ||
+            category === selectedCategory;
+
+        const searchMatch =
+            searchTerm === "" ||
+            text.includes(searchTerm);
+
+        if (categoryMatch && searchMatch) {
+
+            card.style.display = "";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
