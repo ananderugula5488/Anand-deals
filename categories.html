@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Categories | DealRadar India</title>
+
+  <meta
+    name="description"
+    content="Explore product categories on DealRadar India and discover useful deal opportunities across Indian online marketplaces."
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <style>
+    :root {
+      --background: #f7f8fa;
+      --white: #ffffff;
+      --text: #111827;
+      --muted: #667085;
+      --border: #e5e7eb;
+      --primary: #111827;
+      --accent: #d97706;
+      --accent-light: #fff7ed;
+      --success: #15803d;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: #475467;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      padding: 80px 0 90px;
+    }
+
+    .page-label {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid #f3c98b;
+      border-radius: 999px;
+      background: var(--accent-light);
+      color: #9a5b00;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 60px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 55px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      letter-spacing: -0.7px;
+      margin-bottom: 10px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .category-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-3px);
+      border-color: #f1c27d;
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+    }
+
+    .category-number {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .category-card h3 {
+      font-size: 20px;
+      margin-bottom: 9px;
+    }
+
+    .category-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .category-link {
+      color: var(--success);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .principles {
+      margin-top: 75px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 22px;
+      padding: 42px;
+    }
+
+    .principles h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .principles-intro {
+      color: #cbd5e1;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .principle {
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 15px;
+      padding: 22px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .principle h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .principle p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 45px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .note p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      background: #0b1220;
+      color: #ffffff;
+      padding: 35px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      color: #cbd5e1;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .categories-grid,
+      .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      main {
+        padding: 55px 0 65px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .categories-grid,
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .principles {
+        padding: 28px;
+      }
+
+      .category-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+
+      <a href="index.html" class="logo">
+        DealRadar <span>India</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <span class="page-label">Explore Categories</span>
+
+      <h1>Find deals by category.</h1>
+
+      <p class="intro">
+        DealRadar India is being built to help shoppers discover useful
+        products, price opportunities and interesting offers across
+        Indian online marketplaces.
+      </p>
+
+      <section>
+
+        <h2 class="section-title">Popular product categories</h2>
+
+        <p class="section-description">
+          We focus on categories where price changes, discounts and product
+          comparisons can make a meaningful difference to shoppers.
+        </p>
+
+        <div class="categories-grid">
+
+          <article class="category-card">
+            <div class="category-number">01</div>
+            <h3>Electronics</h3>
+            <p>
+              Smartphones, accessories, audio products, computers and
+              other consumer electronics.
+            </p>
+            <div class="category-link">Explore opportunities →</div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-number">02</div>
+            <h3>Home & Kitchen</h3>
+            <p>
+              Useful household products, kitchen equipment, appliances
+              and everyday home essentials.
+            </p>
+            <div class="category-link">Explore opportunities →</div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-number">03</div>
+            <h3>Fashion</h3>
+            <p>
+              Clothing, footwear, accessories and other fashion-related
+              shopping opportunities.
+            </p>
+            <div class="category-link">Explore opportunities →</div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-number">04</div>
+            <h3>Beauty & Personal Care</h3>
+            <p>
+              Personal-care products, grooming items and beauty products
+              available through online retailers.
+            </p>
+            <div class="category-link">Explore opportunities →</div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-number">05</div>
+            <h3>Gaming</h3>
+            <p>
+              Gaming accessories, peripherals, hardware and related
+              products worth watching for price changes.
+            </p>
+            <div class="category-link">Explore opportunities →</div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-number">06</div>
+            <h3>Everyday Essentials</h3>
+            <p>
+              Practical products and everyday items where price
+              comparisons can help shoppers save money.
+            </p>
+            <div class="category-link">Explore opportunities →</div>
+          </article>
+
+        </div>
+
+      </section>
+
+      <section class="principles">
+
+        <h2>How we approach categories</h2>
+
+        <p class="principles-intro">
+          A category listing alone does not make a deal useful. We aim to
+          evaluate price information, product context and availability
+          before presenting an opportunity.
+        </p>
+
+        <div class="principles-grid">
+
+          <div class="principle">
+            <h3>Price Context</h3>
+            <p>
+              A large discount percentage does not automatically mean a
+              genuinely good price.
+            </p>
+          </div>
+
+          <div class="principle">
+            <h3>Product Relevance</h3>
+            <p>
+              We focus on products that may have practical value rather
+              than simply displaying random discounts.
+            </p>
+          </div>
+
+          <div class="principle">
+            <h3>Transparency</h3>
+            <p>
+              Prices, stock and promotional conditions can change, so
+              shoppers should verify the final details before purchasing.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <div class="note">
+        <strong>Important information</strong>
+
+        <p>
+          DealRadar India does not control retailer pricing, inventory,
+          shipping charges or promotional conditions. Product information
+          and prices may change without notice. Always verify the current
+          details on the relevant retailer's website before making a
+          purchase.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="categories.html">Categories</a>
+      </div>
+
+      <div class="copyright">
+        © 2026 DealRadar India. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
